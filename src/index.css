@@ -3,3 +3,135 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.main-map {
+  width: 100%;
+}
+
+/* overlay on bottom */
+.overlay {
+  bottom: 0;
+  width: 95%;
+  position: absolute;
+  left: 2.5%;
+  z-index: 1000;
+  margin-bottom: 2.5%;
+}
+.overlay .left-panel {
+  float: left;
+}
+.overlay .right-panel {
+  float: right;
+}
+.overlay .left-panel, .overlay .right-panel {
+  width: 45%;
+  background: #3B444E;
+  border-radius: 5px;
+  height: 80px;
+}
+
+/* custom popup */
+.popup-tip-anchor {
+  height: 0;
+  position: absolute;
+  /* The max width of the info window. */
+  width: 200px;
+}
+/* The bubble is anchored above the tip. */
+.popup-bubble-anchor {
+  position: absolute;
+  width: 100%;
+  bottom: /* TIP_HEIGHT= */ 8px;
+  left: 0;
+}
+/* Draw the tip. */
+.popup-bubble-anchor::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Center the tip horizontally. */
+  transform: translate(-50%, 0);
+  /* The tip is a https://css-tricks.com/snippets/css/css-triangle/ */
+  width: 0;
+  height: 0;
+  /* The tip is 8px high, and 12px wide. */
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: /* TIP_HEIGHT= */ 8px solid transparent;
+}
+/* The popup bubble itself. */
+.popup-bubble-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* padding-right: 10px; */
+  transform: translate(-50%, -100%);
+  /* Style the info window. */
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: sans-serif;
+  overflow-y: auto;
+  max-height: 60px;
+  box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.5);
+  border-radius: 200px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.popup-bubble-content:hover {
+  opacity: 0.9;
+}
+.Jaipur, .Hyderabad {
+  transform: translate(5%, -50%);
+}
+.Delhi, .Mumbai, .Bangalore {
+  transform: translate(-105%, -50%);
+}
+.popup-bubble-content div {
+  display: inline-block;
+}
+.popup-bubble-content .circle-letter {
+  margin-top:6px;
+  /* padding: 5px; */
+  background: white;
+  border-radius: 100px;
+  width: 16px;
+  height: 11px;
+  font-size: 8px;
+  text-align: center;
+  padding-top:3px;
+}
+.Hyderabad .circle-letter,
+.Jaipur .circle-letter {
+  float: left;
+}
+.Delhi .circle-letter,
+.Mumbai .circle-letter,
+.Bangalore .circle-letter {
+  float: right;
+  margin-left: 15px;
+}
+.popup-bubble-content .list-trips ul {
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
+  color: white;
+}
+
+/* city styling */
+.Bangalore {
+  background: #50E3C2;
+}
+.Delhi {
+  background: #ED7159;
+}
+.Jaipur {
+  background: #59597E;
+}
+.Mumbai {
+  background: #9BC769;
+}
+.Hyderabad {
+  background: #DAD156;
+}
