@@ -16,19 +16,80 @@ body {
   left: 2.5%;
   z-index: 1000;
   margin-bottom: 2.5%;
+  
 }
 .overlay .left-panel {
   float: left;
 }
 .overlay .right-panel {
   float: right;
+  
 }
 .overlay .left-panel, .overlay .right-panel {
-  width: 45%;
+  padding: 10px;
   background: #3B444E;
   border-radius: 5px;
   height: 80px;
 }
+
+.overlay .left {
+  color: #e4e3e3;
+  margin-left: 25px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 25px;
+}
+
+.left p {
+  line-height: 0;
+  margin-bottom: 0;
+  font-size: 28px;
+}
+
+.panelText {
+  color: #363636;
+  margin-top: -38px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+.overlay .right {
+  display: inline-block;
+}
+
+.overlay .right .widget {
+  border-radius: 5px;
+  border: 2px solid;
+  font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  line-height: 28px;
+  width: 25%;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.widget:not(:last-child) {
+  margin-right: 15px;
+}
+
+.widget.red {
+  border-color: #b56356;
+  color: #b56356;
+}
+
+.widget.yellow {
+  border-color: #957844;
+  color: #957844;
+}
+
+.widget.green {
+  border-color: #58986f;
+  color: #58986f;
+}
+
+
 
 /* custom popup */
 .popup-tip-anchor {

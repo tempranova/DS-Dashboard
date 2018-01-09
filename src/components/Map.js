@@ -1,5 +1,45 @@
 import React, { Component } from 'react';
 
+class SummaryPanel extends Component {
+  render() {
+    const {
+      totalTrips, 
+      widgetLeftName,
+      widgetLeftData,
+      widgetMiddleName,
+      widgetMiddleData, 
+      widgetRightName,
+      widgetRightData,
+      panelDescription 
+    } = this.props.data;
+
+    return (
+      <div>
+      <p className="panelText">
+        {panelDescription}
+      </p>
+      <div className="left">
+        <p className="totalTrips">
+          {totalTrips}
+        </p>
+          <br/>Trips
+      </div>
+      <div className="right">
+        <div className={["widget", "red"].join(' ')}>
+          {widgetLeftName} ({widgetLeftData})
+        </div>
+        <div className={["widget", "yellow"].join(' ')}>
+          {widgetMiddleName} ({widgetMiddleData})
+        </div>
+        <div className={["widget", "green"].join(' ')}>
+        { widgetRightName}<br/>({widgetRightData})
+        </div>
+      </div>
+      </div>
+    );
+  }
+}
+
 class Map extends Component {
 
   constructor(props) {
@@ -150,21 +190,86 @@ class Map extends Component {
   render() {
     const { view, cityData, summaryData } = this.state;
 
-    var currentData = view==='summary' ? summaryData : cityData;
+    let currentData = view === 'summary' ? summaryData : cityData;
 
-    console.log(currentData);
+    let totalTrips = 0;
+    let highDelayTrips = 0;
+    let lowDelayTrips = 0;
+    let onTimeTrips = 0;
+    let routeDeviation = 0;
+    let startedOnTimeTrips = 0;
+    let runningLate = 0;
+    let startedTripTotal = 0;
 
+    if(summaryData) {
+      totalTrips = currentData
+        .reduce((prev, curr) => prev + curr.trips, 0)
+        .toLocaleString('en');
+      highDelayTrips = currentData
+        .reduce((prev, curr) => prev + curr.stats.starting_trips.high_delay, 0)
+        .toLocaleString('en');
+      lowDelayTrips = currentData
+        .reduce((prev, curr) => prev + curr.stats.starting_trips.low_delay, 0)
+        .toLocaleString('en');
+      onTimeTrips = currentData
+        .reduce((prev, curr) => prev + curr.stats.starting_trips.on_time, 0)
+        .toLocaleString('en');
+
+      startedTripTotal = currentData
+        .reduce((prev, curr) => prev + curr.stats.started_trips.total, 0)
+        .toLocaleString('en');
+      routeDeviation = currentData
+        .reduce((prev, curr) => prev + curr.stats.started_trips.route_deviation, 0)
+        .toLocaleString('en');
+      runningLate = currentData
+        .reduce((prev, curr) => prev + curr.stats.started_trips.running_late, 0)
+        .toLocaleString('en');
+      startedOnTimeTrips = currentData
+        .reduce((prev, curr) => prev + curr.stats.started_trips.on_time, 0)
+        .toLocaleString('en');
+
+
+    } else if(cityData) {
+
+    }
+
+    let startingTrips = {
+      totalTrips, 
+      widgetLeftName : 'High Delay',
+      widgetLeftData : highDelayTrips, 
+      widgetMiddleName : 'Low Delay',
+      widgetMiddleData : lowDelayTrips,
+      widgetRightName : 'On Time',
+      widgetRightData : onTimeTrips,
+      panelDescription : 'Trips starting in 30 minutes'
+    };
+
+    let startedTrips = {
+      totalTrips: startedTripTotal, 
+      widgetLeftName : 'Route Deviation',
+      widgetLeftData : routeDeviation, 
+      widgetMiddleName : 'Running Late',
+      widgetMiddleData : runningLate,
+      widgetRightName : 'On Time',
+      widgetRightData : startedOnTimeTrips,
+      panelDescription : 'Run time trips'
+    };
+    
     return (
       <div>
         <div className="overlay">
-          <div className="left-panel">
-          </div>
-          <div className="right-panel">
-          </div>
+        <div className="left-panel">
+          <SummaryPanel
+            data={startingTrips} />
+        </div>
+        <div className="right-panel">
+          <SummaryPanel
+            data={startedTrips} />
+        </div>
         </div>
         <div style={{height:window.innerHeight}} id="map" className="main-map"></div>
       </div>
-    )
+    );
   }
 
   createPopup() {
