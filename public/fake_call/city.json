@@ -1,0 +1,168 @@
+{
+   "data":[
+      {
+         "cab_id":4151,
+         "cab_name":"xyz - 12432",
+         "cab_phone":"902123513",
+         "location":[
+            13.000694,
+            77.722741
+         ],
+         "cab_trip_id":" 59ec3db73af9c157ae8d70d4 ",
+         "cab_trip_name":"Banashankari To Bagmane Tech Park",
+         "low_battery":true,
+         "route_deviation":false,
+         "cab_trip_status":"started",
+         "delay_status":"on_time"
+      },
+      {
+         "cab_id":4152,
+         "cab_name":"xyz - 12432",
+         "cab_phone":"902123513",
+         "location":[
+            12.940622,
+            77.57688
+         ],
+         "cab_trip_id":" 59ec3db73af9c157ae8d70d4 ",
+         "cab_trip_name":"Banashankari To Bagmane Tech Park",
+         "low_battery":false,
+         "route_deviation":false,
+         "cab_trip_status":"accepted",
+         "delay_status":"on_time"
+      },
+      {
+         "cab_id":4153,
+         "cab_name":"xyz - 12432",
+         "cab_phone":"902123513",
+         "location":[
+            12.924626,
+            77.673621
+         ],
+         "cab_trip_id":" 59ec3db73af9c157ae8d70d4 ",
+         "cab_trip_name":"Banashankari To Bagmane Tech Park",
+         "low_battery":false,
+         "route_deviation":false,
+         "cab_trip_status":"accepted",
+         "delay_status":"low_delay"
+      },
+      {
+         "cab_id":4154,
+         "cab_name":"xyz - 12432",
+         "cab_phone":"902123513",
+         "location":[
+            12.916893,
+            77.559423
+         ],
+         "cab_trip_id":" 59ec3db73af9c157ae8d70d4 ",
+         "cab_trip_name":"Banashankari To Bagmane Tech Park",
+         "low_battery":false,
+         "route_deviation":false,
+         "cab_trip_status":"started",
+         "delay_status":"high_delay"
+      },
+      {
+         "cab_id":4155,
+         "cab_name":"xyz - 12432",
+         "cab_phone":"902123513",
+         "location":[
+            12.899161,
+            77.631281
+         ],
+         "cab_trip_id":" 59ec3db73af9c157ae8d70d4 ",
+         "cab_trip_name":"Banashankari To Bagmane Tech Park",
+         "low_battery":true,
+         "route_deviation":false,
+         "cab_trip_status":"accepted",
+         "delay_status":"no_data"
+      },
+      {
+         "cab_id":4156,
+         "cab_name":"xyz - 12432",
+         "cab_phone":"902123513",
+         "location":[
+            13.030053,
+            77.608014
+         ],
+         "cab_trip_id":" 59ec3db73af9c157ae8d70d4 ",
+         "cab_trip_name":"Banashankari To Bagmane Tech Park",
+         "low_battery":false,
+         "route_deviation":true,
+         "cab_trip_status":"started",
+         "delay_status":"on_time"
+      },
+      {
+         "cab_id":4157,
+         "cab_name":"xyz - 12432",
+         "cab_phone":"902123513",
+         "location":[
+            12.924383,
+            77.618396
+         ],
+         "cab_trip_id":" 59ec3db73af9c157ae8d70d4 ",
+         "cab_trip_name":"Banashankari To Bagmane Tech Park",
+         "low_battery":false,
+         "route_deviation":true,
+         "cab_trip_status":"started",
+         "delay_status":"low_delay"
+      },
+      {
+         "cab_id":4158,
+         "cab_name":"xyz - 12432",
+         "cab_phone":"902123513",
+         "location":[
+            12.998121,
+            77.553134
+         ],
+         "cab_trip_id":" 59ec3db73af9c157ae8d70d4 ",
+         "cab_trip_name":"Banashankari To Bagmane Tech Park",
+         "low_battery":false,
+         "route_deviation":true,
+         "cab_trip_status":"started",
+         "delay_status":"high_delay"
+      },
+      {
+         "cab_id":4159,
+         "cab_name":"xyz - 12432",
+         "cab_phone":"902123513",
+         "location":[
+            13.040048,
+            77.624603
+         ],
+         "cab_trip_id":" 59ec3db73af9c157ae8d70d4 ",
+         "cab_trip_name":"Banashankari To Bagmane Tech Park",
+         "low_battery":false,
+         "route_deviation":false,
+         "cab_trip_status":"started",
+         "delay_status":"no_data"
+      },
+      {
+         "cab_id":4160,
+         "cab_name":"xyz - 12432",
+         "cab_phone":"902123513",
+         "location":[
+            12.957094,
+            77.740819
+         ],
+         "cab_trip_id":" 59ec3db73af9c157ae8d70d4 ",
+         "cab_trip_name":"Banashankari To Bagmane Tech Park",
+         "low_battery":true,
+         "route_deviation":true,
+         "cab_trip_status":"started",
+         "delay_status":"no_data"
+      }
+   ],
+   "stats":{
+      "accepted_trips":{
+         "high_delay":1,
+         "low_delay":1,
+         "on_time":1,
+         "total":3
+      },
+      "started_trips":{
+         "route_deviation":2,
+         "running_late":2,
+         "on_time":3,
+         "total":7
+      }
+   }
+}

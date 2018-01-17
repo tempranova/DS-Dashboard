@@ -8,6 +8,49 @@ body {
   width: 100%;
 }
 
+/* menu top */
+.menu {
+  right: 0;
+  margin:0; padding:0;
+  margin-top: 20px;
+  /* margin-right: 20px; */
+  position: absolute;
+  z-index: 10;
+  background: rgba(0,0,0,0.4);
+  color: white;
+  font-size: 12px;
+}
+.menu ul {
+  cursor: pointer;
+  margin:0; padding:0;
+  list-style-type: none;
+  display: flex;
+}
+.menu .first-menu li {
+  /* display: inline-block; */
+  font-weight: lighter;
+  padding: 10px;
+}
+.menu .first-menu li:first-child {
+  padding-top:12px;
+  padding-right: 15px;
+}
+.menu select {
+  margin-top:0px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 12px;
+}
+.menu .marker-img {
+  width: 10px;
+  position:absolute;
+  margin-left:-10px;
+}
+.menu .menu-img {
+  width: 15px;
+  margin-top:3px;
+}
 /* overlay on bottom */
 .overlay {
   bottom: 0;
@@ -16,18 +59,24 @@ body {
   left: 2.5%;
   z-index: 1000;
   margin-bottom: 2.5%;
-  
+
 }
 .overlay .left-panel {
   float: left;
 }
 .overlay .right-panel {
   float: right;
-  
+
 }
 .overlay .left-panel, .overlay .right-panel {
   padding: 10px;
   background: #3B444E;
+  border-radius: 5px;
+  height: 80px;
+}
+.overlay .left-panel.city, .overlay .right-panel.city {
+  padding: 10px;
+  background: #000000;
   border-radius: 5px;
   height: 80px;
 }
@@ -52,6 +101,9 @@ body {
   font-weight: bold;
   font-size: 18px;
   text-align: center;
+}
+.city .panelText {
+  color: white;
 }
 
 .overlay .right {
@@ -178,6 +230,13 @@ body {
   padding: 0;
   margin-left: 20px;
   color: white;
+}
+
+.right > div {
+  cursor:pointer;
+}
+.right > div.selected {
+  background: url('/assets/check.png') no-repeat top right;
 }
 
 /* city styling */
