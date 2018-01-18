@@ -255,6 +255,7 @@ class Map extends Component {
 
             that.setState({currentCityData : json});
 
+            // console.log(intervals)
             intervals.forEach(function(interval) {
               clearInterval(interval);
             })
@@ -268,7 +269,7 @@ class Map extends Component {
                 if(markerIDs.indexOf(element.cab_id)===-1) {
 
                   // any filters on, exclude new drivers from being added
-
+                  // console.log('running');
                   var size = element.cab_trip_status==='started' ? 20 : 10;
                   var image = {
                     url: '/assets/'+element.delay_status.replace(' ','_')+'_'+element.cab_trip_status+'.png',
@@ -276,6 +277,9 @@ class Map extends Component {
                     origin: new window.google.maps.Point(0, 0),
                     anchor: new window.google.maps.Point(size/2,size/2)
                   };
+                  if(element.route_deviation) {
+                    image.url = '/assets/route_deviation_'+element.cab_trip_status+'.png'
+                  }
                   var marker = new window.google.maps.Marker({
                     position: {lat:element.location[0],lng:element.location[1]},
                     map: map,
@@ -401,13 +405,13 @@ class Map extends Component {
                                         routeLines : routeLines,
                                         routeMarkers : routeMarkers
                                       })
-                                    },200*(delay*(topIndex+1)));
+                                    },100*(delay*(topIndex+1)));
                                     var allTimeouts = JSON.parse(JSON.stringify(that.state.allTimeouts));
                                     allTimeouts.push(anotherTimeout);
                                     that.setState({allTimeouts})
                                   });
                                 }
-                              },1000);
+                              },500);
                               var allTimeouts = JSON.parse(JSON.stringify(that.state.allTimeouts));
                               allTimeouts.push(bigTimeout);
                               that.setState({allTimeouts})
@@ -435,21 +439,27 @@ class Map extends Component {
                   // Here, random element being added to location
                   // Remove when using real data
                   var range = interpolateLineRange( [
-                    [markers[index].getPosition().lat(),markers[index].getPosition().lng()],
+                    [that.state.markers[index].getPosition().lat(),that.state.markers[index].getPosition().lng()],
                     [element.location[0]+(Math.random()/5),element.location[1]+(Math.random()/5)]
-                  ], 50 );
+                  ], 51 );
 
                   // Short interval to animate
                   var t = 0;
                   var thisInterval = setInterval(function() {
+                    // clearInterval(thisInterval);
+                      // if(index<3) {
                       if(t<50&&typeof range[t] !== 'undefined') {
                         markers[index].setPosition({lat:range[t][0],lng:range[t][1]})
                         t = 1+t;
                       } else {
                         clearInterval(thisInterval);
                       }
+                      // }
                   }, 100);
                   intervals.push(thisInterval);
+                  // setTimeout(function() {
+                  //   clearInterval(thisInterval);
+                  // },5000);
 
                   // Modify who is shown and hidden
 
@@ -520,7 +530,7 @@ class Map extends Component {
         line.setMap(null);
       })
       allTimeouts.forEach(function(timeout) {
-        clearInterval(timeout);
+        clearTimeout(timeout);
       })
 
       type = type.indexOf('starting')>-1 ? 'accepted' : 'started';

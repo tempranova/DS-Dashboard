@@ -76,9 +76,14 @@ body {
 }
 .overlay .left-panel.city, .overlay .right-panel.city {
   padding: 10px;
+  transform: scale(0.8);
   background: #000000;
   border-radius: 5px;
-  height: 80px;
+  height: 50px;
+}
+.overlay .left-panel.city div, .overlay .right-panel.city div {
+  transform: scale(0.9);
+  margin-top:-15px;
 }
 
 .overlay .left {

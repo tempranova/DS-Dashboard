@@ -15,7 +15,7 @@ class SummaryPanel extends Component {
 
     const { filter } = this.props;
 
-    console.log(filter);
+    // console.log(filter);
     var checker = 'started';
     if(panelDescription.indexOf('starting')>-1) {
       checker = 'accepted';
