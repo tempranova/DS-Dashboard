@@ -70,14 +70,15 @@ body {
 }
 .overlay .left-panel, .overlay .right-panel {
   padding: 10px;
-  background: #3B444E;
+  /* background: #3B444E; */
+  background: rgba(59, 68, 78,0.4);
   border-radius: 5px;
   height: 80px;
 }
 .overlay .left-panel.city, .overlay .right-panel.city {
   padding: 10px;
   transform: scale(0.8);
-  background: #000000;
+  background: rgba(0,0,0,0.4);
   border-radius: 5px;
   height: 50px;
 }
